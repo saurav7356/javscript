@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        td {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 150px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: right;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <table>
+            <tr>
+                <td>Enter First Number:</td>
+                <td><input type="text" id="text1"></td>
+            </tr>
+            <tr>
+                <td>Enter Second Number:</td>
+                <td><input type="text" id="text2"></td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td><input type="text" id="result" disabled></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button onclick="Add()">Add</button>
+                    <button onclick="Mul()">Mul</button>
+                    <button onclick="Sub()">Sub</button>
+                    <button onclick="Div()">Div</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function Add() {
+            let num1 = parseInt(document.getElementById("text1").value);
+            let num2 = parseInt(document.getElementById("text2").value);
+            let sum = num1 + num2;
+            document.getElementById("result").value = sum;
+        }
+
+        function Mul() {
+            let num1 = parseInt(document.getElementById("text1").value);
+            let num2 = parseInt(document.getElementById("text2").value);
+            let mul = num1 * num2;
+            document.getElementById("result").value = mul;
+        }
+
+        function Sub() {
+            let num1 = parseInt(document.getElementById("text1").value);
+            let num2 = parseInt(document.getElementById("text2").value);
+            let sub = num1 - num2;
+            document.getElementById("result").value = sub;
+        }
+
+        function Div() {
+            let num1 = parseInt(document.getElementById("text1").value);
+            let num2 = parseInt(document.getElementById("text2").value);
+            if (num2 !== 0) {
+                let div = num1 / num2;
+                document.getElementById("result").value = div;
+            } else {
+                document.getElementById("result").value = "Error";
+            }
+        }
+    </script>
+</body>
+
+</html>
